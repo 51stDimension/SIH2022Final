@@ -3,6 +3,8 @@ import factory from '../ethereum/factory';
 import { Card,Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import Layout from '../components/Layout';
+import {Link} from '../routes';
+
 
 class FIRIndex extends Component {
     static async getInitialProps() {
@@ -19,7 +21,11 @@ class FIRIndex extends Component {
         const items = this.props.firs.map(address => {
             return {
                 header: address,
-                description: <a>View FIR</a>,
+                description:(
+                  <Link route={`/firs/${address}`}>
+                    <a>View FIR</a>
+                  </Link>
+                ),
                 fluid: true
             }
         });
@@ -31,8 +37,11 @@ class FIRIndex extends Component {
         return(
             <Layout>
                 <div>
+                    <h3>All Open FIRs</h3>
+                    <Link route="/firs/new">
+                        <Button floated="right" content='File a FIR' icon='add circle' labelPosition='left' primary />
+                    </Link>
                     {this.renderFIRs()}
-                    <Button content='File a FIR' icon='add circle' labelPosition='left' primary />
                 </div>
             </Layout>
         );

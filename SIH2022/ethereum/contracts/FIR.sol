@@ -24,4 +24,14 @@ contract FIR{
         caseDetails = aboutCase;
         victimName = name;
     }
+
+    function getDetails() public view returns (
+        address,string memory,string memory
+    ) {
+        return (
+            victim,
+            caseDetails,
+            victimName
+        );
+    }
 }
