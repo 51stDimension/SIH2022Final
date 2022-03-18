@@ -16,6 +16,8 @@ Download these two files and run pip install on them locally for gdal and fiona
 ```GDAL-3.4.1-cp38-cp38-win_amd64.whl ```
 ```Fiona-1.8.21-cp38-cp38-win_amd64.whl```
 
+Install the files by going to the path where it is installed and running ```pip install GDAL-3.4.1-cp38-cp38-win_amd64.whl``` and ```pip install Fiona-1.8.21-cp38-cp38-win_amd64.whl```
+
 ## Potential Errors
 Instructions on how to install the above mentioned files
 
