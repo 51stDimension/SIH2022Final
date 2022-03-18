@@ -2,6 +2,7 @@ const path = require("path");
 const solc = require("solc");
 const fs = require("fs-extra");//Short for file system
 
+
 const buildPath = path.resolve(__dirname, "build");
 fs.removeSync(buildPath);
 
@@ -23,8 +24,7 @@ const input = {
   },
 };
 const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts['FIR.sol'];
-
-fs.ensureDirSync(buildPath);//Recreate the build folder
+fs.ensureDirSync(buildPath);
 for (let contract in output) {
   console.log(contract);
   fs.outputJsonSync(

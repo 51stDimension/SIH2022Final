@@ -3,7 +3,7 @@ import FIRFactory from './build/FIRFactory.json'
 
 const instance  = new web3.eth.Contract(
      FIRFactory.abi,
-    '0x0be368bC7C0B2d46D7aFf69b12948Da5C921B4be'
+    '0x317E9ad7adA04DE8749EAeF4aaA4Ddd65481e55E'
 );
 
 export default instance;
