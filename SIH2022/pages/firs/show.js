@@ -4,6 +4,7 @@ import Fir from '../../ethereum/fir';
 import {Card} from 'semantic-ui-react';
 import { Button } from 'semantic-ui-react';
 import {Link} from '../../routes';
+import ProgressExampleIndicating from './progress';
 
 class FIRShow extends Component{
 
@@ -72,6 +73,7 @@ class FIRShow extends Component{
         <h3>About FIR</h3>
         {this.renderCards()}
         <h3>Current status of the FIR: {this.props.status}</h3>
+        
         <Link route={`/firs/${this.props.address}/update`}>
             <Button content='Update Case Status' icon='sort amount up' labelPosition='left' primary />
         </Link>

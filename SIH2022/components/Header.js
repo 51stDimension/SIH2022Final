@@ -9,6 +9,9 @@ export default () => {
           <Link route="/">
             <a className="item">FIR Portal</a>
           </Link>
+          <Link route="/checkstats">
+            <a className="item">Check Crime Stats</a>
+          </Link>
         <Menu.Menu position='right'>
           <Link route="/">
             <a className="item">All FIRs</a>
