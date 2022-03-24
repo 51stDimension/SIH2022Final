@@ -8,13 +8,20 @@ import ProgressExampleIndicating from './progress';
 
 class FIRShow extends Component{
 
+  state = {
+    desc:'No progress yet'
+  }
+
   static async getInitialProps(props){
     console.log(props.query.address);
     const fir = Fir(props.query.address);
     const firDetails = await fir.methods.getDetails().call();
-    console.log(firDetails);
+    // console.log(firDetails);
+
     const stat = await fir.methods.getStatus().call();
     const logs = await fir.methods.getAllUpdateLogs().call();
+    // this.setState({desc:this.props.logs);
+    
     return {
       address:props.query.address,
       victimAddress:firDetails[0],
@@ -63,7 +70,8 @@ class FIRShow extends Component{
             fluid: true
         }
     });
-
+    // this.setState({desc:items[items.length-1].description});
+    console.log(this.props.logs);
     return <Card.Group items={items} />;
   }
 
@@ -72,7 +80,7 @@ class FIRShow extends Component{
       <Layout>
         <h3>About FIR</h3>
         {this.renderCards()}
-        <h3>Current status of the FIR: {this.props.status}</h3>
+        <h3>Current status of the FIR: {this.props.logs[this.props.logs.length - 1][2]}</h3>
         
         <Link route={`/firs/${this.props.address}/update`}>
             <Button content='Update Case Status' icon='sort amount up' labelPosition='left' primary />
