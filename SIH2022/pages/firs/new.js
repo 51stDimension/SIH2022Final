@@ -18,11 +18,12 @@ class FIRNew extends Component{
     this.setState({loading:true,errorMessage:''});
     try{
       const accounts = await web3.eth.getAccounts();
-      await factory.methods.createFIR(this.state.caseSummary,this.state.fullName)
-      .send({
+      await factory.methods.createFIR(this.state.caseSummary,this.state.fullName).send({
         from:accounts[0]
       });
-      Router.pushRoute('/');
+      const addr = await factory.methods.getLatestFIR().call();
+      console.log('New FIR made at address',addr);
+      Router.pushRoute('/firs/getqr/' + addr);
     } catch(err){
       this.setState({errorMessage:err.message})
     }

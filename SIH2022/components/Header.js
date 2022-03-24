@@ -12,6 +12,9 @@ export default () => {
           <Link route="/checkstats">
             <a className="item">Check Crime Stats</a>
           </Link>
+          <Link route="/qrscanner">
+            <a className="item">Check FIR status via QR</a>
+          </Link>
         <Menu.Menu position='right'>
           <Link route="/">
             <a className="item">All FIRs</a>

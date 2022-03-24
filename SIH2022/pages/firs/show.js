@@ -5,6 +5,8 @@ import {Card} from 'semantic-ui-react';
 import { Button } from 'semantic-ui-react';
 import {Link} from '../../routes';
 import ProgressExampleIndicating from './progress';
+import QRCode from "qrcode.react";
+
 
 class FIRShow extends Component{
 
@@ -85,7 +87,14 @@ class FIRShow extends Component{
         <h3>About FIR</h3>
         {this.renderCards()}
         <h3>Current status of the FIR: {desc}</h3>
-        
+
+        <h3>QR Code for this FIR</h3>
+        <div>
+            <QRCode
+            value={"http://localhost:3000/firs/" + this.props.address} style={{ marginRight: 50 }}/>
+            <p>This QR can be used to directly access the FIR filed</p>
+        </div>
+        <hr></hr>
         <Link route={`/firs/${this.props.address}/update`}>
             <Button content='Update Case Status' icon='sort amount up' labelPosition='left' primary />
         </Link>

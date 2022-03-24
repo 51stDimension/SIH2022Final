@@ -2,6 +2,7 @@ const routes = require('next-routes')();//Require statement here returns a funct
 
 // routes.add('..','..');
 routes
+  .add('/firs/getqr/:address','/firs/getqr')
   .add('/firs/new','/firs/new')
   .add('/firs/:address','/firs/show')
   .add('/firs/:address/update','/firs/update');
