@@ -4,10 +4,16 @@ pragma experimental ABIEncoderV2;
 
 contract FIRFactory{
     address[] public deployedFIRs;
+    address latestFIR;
 
     function createFIR(string memory summary,string memory fullName) public{
         address newFIR = address(new FIR(summary,fullName,msg.sender));
         deployedFIRs.push(newFIR);
+        latestFIR = newFIR;
+    }
+
+    function getLatestFIR() public view returns(address){
+        return latestFIR;
     }
 
     function getDeployedFIRs() public view returns (address[] memory){
@@ -24,7 +30,7 @@ contract FIR{
     }
 
     mapping(uint => string) public diary;
-
+   
     address public victim;
     string public caseDetails;
     string public victimName;
