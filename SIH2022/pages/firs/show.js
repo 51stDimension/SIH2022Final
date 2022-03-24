@@ -8,9 +8,6 @@ import ProgressExampleIndicating from './progress';
 
 class FIRShow extends Component{
 
-  state = {
-    desc:'No progress yet'
-  }
 
   static async getInitialProps(props){
     console.log(props.query.address);
@@ -70,17 +67,24 @@ class FIRShow extends Component{
             fluid: true
         }
     });
-    // this.setState({desc:items[items.length-1].description});
     console.log(this.props.logs);
     return <Card.Group items={items} />;
   }
 
   render(){
+    const len = this.props.logs.length;
+    let desc;
+    if(len === 0){
+      desc = 'No progress yet';
+    }
+    else{
+      desc = this.props.logs[this.props.logs.length - 1][2];
+    }
     return(
       <Layout>
         <h3>About FIR</h3>
         {this.renderCards()}
-        <h3>Current status of the FIR: {this.props.logs[this.props.logs.length - 1][2]}</h3>
+        <h3>Current status of the FIR: {desc}</h3>
         
         <Link route={`/firs/${this.props.address}/update`}>
             <Button content='Update Case Status' icon='sort amount up' labelPosition='left' primary />
