@@ -86,9 +86,6 @@ class CheckStats extends Component{
                 <Button type='submit'>Submit</Button>
             </Form>
             {mapImage}
-            <hr/>
-            <h3>Analyze District</h3>
-            <SearchExampleStandard></SearchExampleStandard>
             <hr></hr>
             <h3>View Crime Hotspots around you</h3>
             <Input
@@ -106,6 +103,9 @@ class CheckStats extends Component{
             />
             <Button onClick={this.getLocation} loading={this.state.loadNow}>Load with my Coordinates</Button>
             <FoliumMap lat={this.state.yourlat} long={this.state.yourlong}></FoliumMap>
+            <hr/>
+            <h3>Analyze District</h3>
+            <SearchExampleStandard></SearchExampleStandard>
         </Layout>
         );
     }

@@ -21,7 +21,7 @@ const FoliumMap = (props) => {
   return (
     <>
       <Button onClick={() => dispatch({ type: 'open', size: 'large' })}>
-        Large
+        Load Map
       </Button>
 
       <Modal
