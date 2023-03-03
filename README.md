@@ -2,13 +2,19 @@
 
 Project requires flask, react and next
 
-Install the dependencies and devDependencies and start the server.
+Install the dependencies and devDependencies and start the node server.
 
 ```sh
 cd SIH2022
 npm install
 npm run dev
 ```
+
+Start the flask server
+```sh
+flask run
+```
+
 Make sure you download all the packages mentioned in ```app.py```
 Might face some issues while ```pip install geopandas ```
 
